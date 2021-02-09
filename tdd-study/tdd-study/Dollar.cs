@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace tdd_study
 {
-    public class Dollar
+    public class Dollar : Money
     {
-        private int amount;
-
         public Dollar(int amount)
         {
             this.amount = amount;
@@ -20,10 +18,5 @@ namespace tdd_study
             return new Dollar(this.amount * multiplier);
         }
 
-        public override bool Equals(Object obj)
-        {
-            Dollar dollar = (Dollar)obj;
-            return this.amount == dollar.amount;
-        }
     }
 }
