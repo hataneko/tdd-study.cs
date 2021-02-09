@@ -8,28 +8,22 @@ namespace tdd_study
 {
     public class Dollar
     {
-        private int _amount;
+        private int amount;
 
         public Dollar(int amount)
         {
-            _amount = amount;
-        }
-
-        public int Amount
-        {
-            get => _amount;
-            set => _amount = value;
+            this.amount = amount;
         }
 
         public Dollar Times(int multiplier)
         {
-            return new Dollar(_amount * multiplier);
+            return new Dollar(this.amount * multiplier);
         }
 
         public override bool Equals(Object obj)
         {
             Dollar dollar = (Dollar)obj;
-            return _amount == dollar.Amount;
+            return this.amount == dollar.amount;
         }
     }
 }
