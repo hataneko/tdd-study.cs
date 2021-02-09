@@ -25,5 +25,11 @@ namespace tdd_study
         {
             return new Dollar(_amount * multiplier);
         }
+
+        public override bool Equals(Object obj)
+        {
+            Dollar dollar = (Dollar)obj;
+            return _amount == dollar.Amount;
+        }
     }
 }
