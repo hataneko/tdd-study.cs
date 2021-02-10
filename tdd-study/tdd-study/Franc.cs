@@ -13,7 +13,7 @@ namespace tdd_study
             this.amount = amount;
         }
 
-        public Franc Times(int multiplier)
+        public override Money Times(int multiplier)
         {
             return new Franc(this.amount * multiplier);
         }
