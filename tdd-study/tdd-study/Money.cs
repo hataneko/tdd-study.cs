@@ -12,7 +12,7 @@ namespace tdd_study
         public override bool Equals(Object obj)
         {
             Money money = (Money)obj;
-            return this.amount == money.amount;
+            return this.amount == money.amount && this.GetType().Equals(money.GetType());
         }
     }
 }
