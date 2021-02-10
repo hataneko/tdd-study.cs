@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_study
 {
-    public abstract class Money
+    public class Money
     {
         protected int amount;
         protected string currency;
@@ -16,15 +16,21 @@ namespace tdd_study
             this.amount = amount;
             this.currency = currency;
         }
-        public abstract Money Times(int multiplier);
+
+        public Money Times(int multiplier)
+        {
+            return new Money(this.amount * multiplier, currency);
+        }
+
         public string Currency()
         {
             return this.currency;
         }
+
         public override bool Equals(Object obj)
         {
             Money money = (Money)obj;
-            return this.amount == money.amount && this.GetType().Equals(money.GetType());
+            return this.amount == money.amount && this.currency.Equals(money.currency);
         }
 
         public static Money Dollar(int amount)
@@ -35,6 +41,11 @@ namespace tdd_study
         public static Money Franc(int amount)
         {
             return new Franc(amount, "CHF");
+        }
+
+        public override string ToString()
+        {
+            return amount.ToString() + " " + currency;
         }
     }
 }
