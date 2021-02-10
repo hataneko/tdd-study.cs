@@ -8,15 +8,13 @@ namespace tdd_study
 {
     public class Dollar : Money
     {
-        public Dollar(int amount)
+        public Dollar(int amount, string currency) : base(amount, currency)
         {
-            this.amount = amount;
         }
 
         public override Money Times(int multiplier)
         {
-            return new Dollar(this.amount * multiplier);
+            return Money.Dollar(this.amount * multiplier);
         }
-
     }
 }

@@ -9,7 +9,18 @@ namespace tdd_study
     public abstract class Money
     {
         protected int amount;
+        protected string currency;
+
+        public Money(int amount, string currency)
+        {
+            this.amount = amount;
+            this.currency = currency;
+        }
         public abstract Money Times(int multiplier);
+        public string Currency()
+        {
+            return this.currency;
+        }
         public override bool Equals(Object obj)
         {
             Money money = (Money)obj;
@@ -18,12 +29,12 @@ namespace tdd_study
 
         public static Money Dollar(int amount)
         {
-            return new Dollar(amount);
+            return new Dollar(amount, "USD");
         }
 
         public static Money Franc(int amount)
         {
-            return new Franc(amount);
+            return new Franc(amount, "CHF");
         }
     }
 }
