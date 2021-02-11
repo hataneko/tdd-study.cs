@@ -8,7 +8,7 @@ namespace tdd_study
 {
     public class Money : IExpression
     {
-        protected int amount;
+        protected internal int amount;
         protected string currency;
 
         public Money(int amount, string currency)
@@ -33,6 +33,11 @@ namespace tdd_study
             return this.amount == money.amount && this.currency.Equals(money.currency);
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public static Money Dollar(int amount)
         {
             return new Money(amount, "USD");
@@ -50,7 +55,13 @@ namespace tdd_study
 
         public IExpression Plus(Money addend)
         {
-            return new Money(amount + addend.amount, currency);
+            return new Sum(this, addend);
         }
+
+        public Money Reduce(String to)
+        {
+            return this;
+        }
+
     }
 }
