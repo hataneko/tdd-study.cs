@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tdd_study
 {
-    public class Money
+    public class Money : IExpression
     {
         protected int amount;
         protected string currency;
@@ -46,6 +46,11 @@ namespace tdd_study
         public override string ToString()
         {
             return amount.ToString() + " " + currency;
+        }
+
+        public IExpression Plus(Money addend)
+        {
+            return new Money(amount + addend.amount, currency);
         }
     }
 }
