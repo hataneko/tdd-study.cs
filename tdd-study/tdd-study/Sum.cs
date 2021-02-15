@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tdd_study
+﻿namespace tdd_study
 {
     public class Sum : IExpression
     {
-        public Money Augend;
-        public Money Addend;
+        public IExpression Augend;
+        public IExpression Addend;
 
-        public Sum(Money augend, Money addend)
+        public Sum(IExpression augend, IExpression addend)
         {
             this.Augend = augend;
             this.Addend = addend;
@@ -19,8 +13,13 @@ namespace tdd_study
 
         public Money Reduce(Bank bank, string to)
         {
-            int amount = Augend.amount + Addend.amount;
+            int amount = Augend.Reduce(bank, to).amount + Addend.Reduce(bank, to).amount;
             return new Money(amount, to);
+        }
+
+        public IExpression Plus(IExpression addend)
+        {
+            return null;
         }
     }
 }

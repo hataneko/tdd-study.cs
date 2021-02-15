@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tdd_study
+﻿namespace tdd_study
 {
     public class Money : IExpression
     {
@@ -17,7 +11,7 @@ namespace tdd_study
             this.currency = currency;
         }
 
-        public Money Times(int multiplier)
+        public IExpression Times(int multiplier)
         {
             return new Money(this.amount * multiplier, currency);
         }
@@ -29,7 +23,7 @@ namespace tdd_study
 
         public override bool Equals(object obj)
         {
-            Money money = (Money)obj;
+            var money = (Money)obj;
             return this.amount == money.amount && this.currency.Equals(money.currency);
         }
 
@@ -53,14 +47,14 @@ namespace tdd_study
             return amount.ToString() + " " + currency;
         }
 
-        public IExpression Plus(Money addend)
+        public IExpression Plus(IExpression addend)
         {
             return new Sum(this, addend);
         }
 
         public Money Reduce(Bank bank, string to)
         {
-            int rate = bank.Rate(this.currency, to);
+            var rate = bank.Rate(this.currency, to);
             return new Money(amount / rate, to);
         }
 

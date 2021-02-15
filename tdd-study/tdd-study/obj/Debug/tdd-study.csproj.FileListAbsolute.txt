@@ -4,4 +4,3 @@ C:\Users\hatan\source\repos\hataneko\tdd-study.cs\tdd-study\tdd-study\bin\Debug\
 C:\Users\hatan\source\repos\hataneko\tdd-study.cs\tdd-study\tdd-study\obj\Debug\tdd-study.csproj.CoreCompileInputs.cache
 C:\Users\hatan\source\repos\hataneko\tdd-study.cs\tdd-study\tdd-study\obj\Debug\tdd-study.exe
 C:\Users\hatan\source\repos\hataneko\tdd-study.cs\tdd-study\tdd-study\obj\Debug\tdd-study.pdb
-C:\Users\hatan\source\repos\hataneko\tdd-study.cs\tdd-study\tdd-study\obj\Debug\tdd-study.csprojAssemblyReference.cache

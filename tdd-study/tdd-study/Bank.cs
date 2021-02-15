@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace tdd_study
 {
     public class Bank
     {
         private Dictionary<Pair, int> Rates = new Dictionary<Pair, int>();
+
         public Money Reduce(IExpression source, string to)
         {
             return source.Reduce(this, to);

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xunit;
+﻿using Xunit;
 
 namespace tdd_study.Tests
 {
@@ -83,6 +77,18 @@ namespace tdd_study.Tests
         public void TestIdentityRate()
         {
             Assert.Equal(1, new Bank().Rate("USD", "USD"));
+        }
+
+        [Fact]
+        public void TestMixedAddition()
+        {
+
+            IExpression fiveBucks = Money.Dollar(5);
+            IExpression tenFrancs = Money.Franc(10);
+            Bank bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            Money result = bank.Reduce(fiveBucks.Plus(tenFrancs), "USD");
+            Assert.Equal(Money.Dollar(10), result);
         }
     }
 }
