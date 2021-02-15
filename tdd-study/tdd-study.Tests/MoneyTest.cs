@@ -90,5 +90,29 @@ namespace tdd_study.Tests
             Money result = bank.Reduce(fiveBucks.Plus(tenFrancs), "USD");
             Assert.Equal(Money.Dollar(10), result);
         }
+
+        [Fact]
+        public void TestSumPlusMoney()
+        {
+            IExpression fiveBurks = Money.Dollar(5);
+            IExpression tenFrancs = Money.Franc(10);
+            Bank bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            IExpression sum = new Sum(fiveBurks, tenFrancs).Plus(fiveBurks);
+            Money result = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.Dollar(15), result);
+        }
+
+        [Fact]
+        public void TestSumTimes()
+        {
+            IExpression fiveBurks = Money.Dollar(5);
+            IExpression tenFrancs = Money.Franc(10);
+            Bank bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            IExpression sum = new Sum(fiveBurks, tenFrancs).Times(2);
+            Money result = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.Dollar(20), result);
+        }
     }
 }
