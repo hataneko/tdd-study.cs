@@ -8,6 +8,6 @@ namespace tdd_study
 {
     public interface IExpression
     {
-        Money Reduce(String to);
+        Money Reduce(Bank bank, string to);
     }
 }

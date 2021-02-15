@@ -17,7 +17,7 @@ namespace tdd_study
             this.Addend = addend;
         }
 
-        public Money Reduce(String to)
+        public Money Reduce(Bank bank, string to)
         {
             int amount = Augend.amount + Addend.amount;
             return new Money(amount, to);

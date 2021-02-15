@@ -27,7 +27,7 @@ namespace tdd_study
             return this.currency;
         }
 
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
             Money money = (Money)obj;
             return this.amount == money.amount && this.currency.Equals(money.currency);
@@ -58,9 +58,10 @@ namespace tdd_study
             return new Sum(this, addend);
         }
 
-        public Money Reduce(String to)
+        public Money Reduce(Bank bank, string to)
         {
-            return this;
+            int rate = bank.Rate(this.currency, to);
+            return new Money(amount / rate, to);
         }
 
     }
